@@ -4,6 +4,10 @@ __pycache__/
 .DS_Store
 .env
 
+# Build outputs
+site/
+media/
+
 # Textbook images — only used files are tracked (see DIP3E_Original_Images_CH02/CITATION.md)
 DIP3E_Original_Images_CH02/*
 !DIP3E_Original_Images_CH02/CITATION.md
