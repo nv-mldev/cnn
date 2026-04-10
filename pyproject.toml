@@ -1,0 +1,18 @@
+[project]
+name = "cnn"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "jupyter>=1.1.1",
+    "manim>=0.20.1",
+    "matplotlib>=3.10.8",
+    "numpy>=2.4.2",
+    "opencv-python-headless>=4.13.0.92",
+    "pillow>=12.1.1",
+    "plotly>=6.6.0",
+    "requests>=2.32.5",
+    "scikit-learn>=1.8.0",
+    "scipy>=1.17.0",
+]

@@ -1,0 +1,18 @@
+__pycache__/
+*.pyc
+.obsidian/
+.DS_Store
+.env
+
+# Textbook images — only used files are tracked (see DIP3E_Original_Images_CH02/CITATION.md)
+DIP3E_Original_Images_CH02/*
+!DIP3E_Original_Images_CH02/CITATION.md
+!DIP3E_Original_Images_CH02/Fig0222(b)(cameraman).tif
+!DIP3E_Original_Images_CH02/Fig0220(a)(chronometer 3692x2812  2pt25 inch 1250 dpi).tif
+!DIP3E_Original_Images_CH02/Fig0219(rose1024).tif
+!DIP3E_Original_Images_CH02/Fig0229(a)(tungsten_filament_shaded).tif
+!DIP3E_Original_Images_CH02/Fig0229(b)(tungsten_sensor_shading).tif
+!DIP3E_Original_Images_CH02/Fig0241(a)(einstein low contrast).tif
+!DIP3E_Original_Images_CH02/Fig0241(b)(einstein med contrast).tif
+!DIP3E_Original_Images_CH02/Fig0241(c)(einstein high contrast).tif
+DIP3E_Original_Images_CH03/
