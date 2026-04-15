@@ -20,6 +20,14 @@ Bilinear interpolation is the standard trade-off between speed and quality for i
 - Does NOT recover information lost during [[downsampling]]
 - Higher-order methods (bicubic, LANCZOS) use larger neighbourhoods for even smoother results
 
+## Figure — Interpolation comparison after rotation
+
+A letter "T" rotated 21°, reconstructed with (a) no rotation, (b) nearest-neighbour, (c) bilinear, and (d) bicubic interpolation. The zoomed edge detail shows bilinear reduces the staircase artefacts of nearest-neighbour; bicubic further smooths them at the cost of more computation.
+
+![[gw_interpolation_rotation.jpg]]
+
+*Source: Gonzalez & Woods, Digital Image Processing 3rd ed., Fig. 2.36.*
+
 ## Related Concepts
 
 - [[nearest_neighbour_interpolation|Nearest-Neighbour Interpolation]] — simpler, blockier alternative

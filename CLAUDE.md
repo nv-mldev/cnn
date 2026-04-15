@@ -2,23 +2,16 @@
 
 MODE: tutorial
 
-## Vision: Bridging the Gap to CS231n
+## Vision: From Pixels to Transformers to VLMs
 
-This project builds a **foundational tutorial series** that bridges the gap between "I know basic math" and "I can follow Stanford CS231n (or equivalent deep learning for vision courses)."
+This project builds a **complete tutorial series** that takes you from "I know basic math" all the way to understanding Vision-Language Models — covering every layer of the stack with first-principles depth.
 
-CS231n and similar courses assume you already understand:
-- How images are formed physically (sensors, photons, noise)
-- Why pixel-level comparison fails and what normalisation fixes
-- Probability distributions and why sensor noise is Gaussian
-- Linear algebra as it applies to image operations
-- The motivation for learned features over hand-crafted ones
-
-**This series covers that missing foundation** — starting from photon physics, through probability and linear algebra, to the doorstep of deep learning. Every concept is grounded in the sensor/signal/noise domain, not abstract math.
+The journey: **pixels → math foundations → why pixels fail → convolutions → CNNs → attention → transformers → VLMs**
 
 ### Target Audience
 - Engineers/scientists entering computer vision or ML
 - People who can code Python but lack the imaging/math foundations
-- Self-learners preparing for CS231n, fast.ai, or similar courses
+- Self-learners who want deep understanding, not just API calls
 
 ### Pedagogical Approach
 - **First principles:** physics → math → code → visualization
@@ -28,13 +21,33 @@ CS231n and similar courses assume you already understand:
 
 ## Notebook Structure
 
+### Part I — Foundations (pixels and the math you need)
+
 | # | Notebook | Theme | Builds toward |
 |---|----------|-------|---------------|
 | 00 | Introduction to Digital Images | Sensor physics, sampling, quantization | Understanding what a pixel actually is |
-| 01a | Probability for Sensors | Bernoulli→Binomial→Poisson→Normal→CLT | Why sensor noise is Gaussian, noise budgets |
-| 01b | Linear Algebra for Matching | Vectors, norms, dot product, projections, transforms | The math behind template matching normalisation |
-| 02 | Why Not Pixels | Physics model → affine model → normalisation → limitations → features | Why raw pixels fail and what comes next |
-| (future) | ... | CNNs, feature learning, backprop | CS231n territory |
+| 01 | Linear Algebra for Images | Vectors, norms, dot product, projections, transforms | Comparing image patches, basis for everything ahead |
+| 02 | Probability for Sensors | Bernoulli→Binomial→Poisson→Normal→CLT | Why sensor noise is Gaussian, noise budgets |
+| 03 | Why Not Pixels | Physics model → affine model → normalisation → ceiling → features | Why raw pixels fail and what replaces them |
+
+### Part II — Learning Features (convolutions to CNNs)
+
+| # | Notebook | Theme | Builds toward |
+|---|----------|-------|---------------|
+| 04 | Convolutions & Filtering | Kernels, edge detection, feature maps | The operation CNNs are built on |
+| 05 | Optimisation & Backprop | Gradient descent, chain rule, computational graphs | How networks learn |
+| 06 | CNNs | LeNet → AlexNet → modern architectures | Learned hierarchical features |
+| 07 | Training in Practice | Data augmentation, regularisation, transfer learning | Making CNNs work on real problems |
+
+### Part III — Attention and Beyond (transformers to VLMs)
+
+| # | Notebook | Theme | Builds toward |
+|---|----------|-------|---------------|
+| 08 | Sequence Modelling & Attention | Self-attention, positional encoding | The mechanism behind transformers |
+| 09 | Vision Transformers | Patch embeddings, ViT, comparison with CNNs | Transformers applied to images |
+| 10 | Vision-Language Models | CLIP, contrastive learning, multimodal embeddings | Connecting vision and language |
+
+*Part II and III are roadmap — notebooks will be built incrementally.*
 
 ## Rules
 

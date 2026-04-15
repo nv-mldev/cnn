@@ -3,7 +3,7 @@ tags: [source, tutorial-02]
 source_path: tutorials/02_why_not_pixels/
 last_updated: 2026-04-09
 ---
-
+available in obsidian 
 # Tutorial 02: Why Not Pixels
 
 ## Summary

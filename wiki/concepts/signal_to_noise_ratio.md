@@ -27,6 +27,14 @@ SNR determines whether you can distinguish real scene content from random noise.
 | Phone (1 µm²) | 20 | 4.5 | 3 | 3.7 |
 | DSLR (25 µm²) | 500 | 22.4 | 5 | 21.8 |
 
+## Figure — Noise averaging
+
+A galaxy image corrupted by additive Gaussian noise, then averaged over 5, 10, 20, 50, and 100 independent captures. SNR grows as $\sqrt{N}$ where $N$ is the number of averaged frames — averaging 100 frames gives a 10× SNR improvement over a single frame. This is why stacked astrophotography works.
+
+![[gw_noise_averaging_galaxy.jpg]]
+
+*Source: Gonzalez & Woods, Digital Image Processing 3rd ed., Fig. 2.26.*
+
 ## Related Concepts
 
 - [[shot_noise]] — the dominant noise source at normal light levels

@@ -41,6 +41,14 @@ Each stage transforms pixel values:
 5. **Tone mapping** — non-linear (changes relative differences)
 6. **Compression** — introduces quantization artefacts (JPEG)
 
+## Figure
+
+The classic Gonzalez & Woods illustration of digital image acquisition: an illumination source lights a scene element, the imaging system projects it onto an internal image plane (sensor grid), and the output is a digitized image of discrete pixels.
+
+![[gw_imaging_pipeline.jpg]]
+
+*Source: Gonzalez & Woods, Digital Image Processing 3rd ed., Fig. 2.15.*
+
 ## Related Concepts
 
 - [[photosite]] — where light enters the pipeline

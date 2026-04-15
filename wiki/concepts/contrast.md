@@ -20,6 +20,14 @@ Low-contrast images have pixel values bunched in a narrow range — different ob
 - Controlled by the $a$ parameter in the [[affine_model]]
 - Same face at low/medium/high contrast: pixel values differ by ~100 grey levels
 
+## Figure — Same scene, three contrast levels
+
+Three renderings of Einstein at low, medium, and high contrast. The content is identical — only the affine parameter $a$ changes. The low-contrast version uses only a narrow band of gray levels; the high-contrast version uses the full range.
+
+![[gw_contrast_einstein.jpg]]
+
+*Source: Gonzalez & Woods, Digital Image Processing 3rd ed., Fig. 2.41.*
+
 ## Related Concepts
 
 - [[affine_model]] — contrast is the $a$ parameter

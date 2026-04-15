@@ -20,6 +20,14 @@ Higher spatial resolution means finer [[sampling]] — more detail is preserved.
 - Related to physical sampling by [[ground_sampling_distance]]
 - "Megapixels" = total pixel count / 1,000,000
 
+## Figure — The same scene at four resolutions
+
+A pocket watch shown at 1250 dpi, 300 dpi, 150 dpi, and 72 dpi. As resolution drops, fine features (numerals, minute markings) disappear. The coarser samplings cannot represent detail that exceeds the grid's spatial frequency — this information is permanently lost.
+
+![[gw_spatial_resolution_watch.jpg]]
+
+*Source: Gonzalez & Woods, Digital Image Processing 3rd ed., Fig. 2.20.*
+
 ## Related Concepts
 
 - [[sampling]] — spatial resolution is the 2D sampling rate

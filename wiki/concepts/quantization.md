@@ -36,6 +36,15 @@ img_4bit = quantize(original, 4)   # step = 16, max error = 8
 img_2bit = quantize(original, 2)   # step = 64, max error = 32
 ```
 
+## Figure — Reducing gray levels on a fixed image
+
+A 452×374 skull X-ray at the same spatial resolution, rendered with 256 → 128 → 64 → 32 → 16 → 8 → 4 → 2 gray levels. As levels drop below ~16, [[false_contours]] appear: smooth gradients turn into visible bands. At 2 levels it becomes a pure binary image.
+
+![[gw_quantization_skull_part1.jpg]]
+![[gw_quantization_skull_part2.jpg]]
+
+*Source: Gonzalez & Woods, Digital Image Processing 3rd ed., Fig. 2.21.*
+
 ## Related Concepts
 
 - [[bit_depth]] — number of bits determines number of quantization levels

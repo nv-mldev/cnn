@@ -38,6 +38,14 @@ print(f"Original: {v}, Rotated: {rotated}")
 print(f"Norms: {np.linalg.norm(v):.4f}, {np.linalg.norm(rotated):.4f}")  # Same!
 ```
 
+## Figure — Affine transformations as matrices
+
+Gonzalez & Woods summarise the common 2D affine transformations (identity, scaling, rotation, translation, shear) as 3×3 matrices acting on homogeneous coordinates. Scaling and rotation are pure linear transforms; translation requires the affine extension (the third row/column).
+
+![[gw_affine_transform_table.jpg]]
+
+*Source: Gonzalez & Woods, Digital Image Processing 3rd ed., Table 2.2.*
+
 ## Related Concepts
 
 - [[affine_model]] — $I = aT + b$ combines linear ($a$) and non-linear ($b$) parts

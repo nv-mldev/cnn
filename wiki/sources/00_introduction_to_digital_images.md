@@ -10,7 +10,7 @@ last_updated: 2026-04-05
 
 This tutorial builds the foundational understanding of what a digital image actually is — not as a picture, but as a noisy, quantized, processed 2D array of numbers. Across five parts, it traces the complete journey from photons hitting a sensor to stored pixel values, systematically demonstrating why those values are unreliable representations of scene content.
 
-The central argument: pixel values encode not just scene content but also sensor physics (noise, spectral response), lighting conditions, exposure settings, spatial position (shading), ISP processing (white balance, tone mapping), and compression. This makes raw pixel comparison fundamentally flawed — the motivation for normalisation and learned features in later tutorials.
+The central argument: pixel values encode not just scene content but also sensor physics (noise, spectral response), lighting conditions, exposure settings, spatial position (shading), ISP processing (white balance, tone mapping), and compression. This makes raw pixel comparison fundamentally flawed — the motivation for normalization and learned features in later tutorials.
 
 ## Key Claims
 

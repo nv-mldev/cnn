@@ -5,20 +5,18 @@ last_updated: 2026-04-10
 
 # Foundations of Machine Vision — Wiki
 
-From photons to features: the math and physics foundations you need before deep learning for vision.
+From photons to transformers to VLMs: the complete visual intelligence stack, built from first principles.
 
-The structure follows the learning progression: **sensor physics → probability → linear algebra → matching → features → deep learning**. Each level builds on the previous — drill down from the top.
+The structure follows the learning progression: **sensor physics → linear algebra → probability → matching → features → CNNs → attention → transformers → VLMs**. Each level builds on the previous — drill down from the top.
 
 ---
 
 ## Sources (Tutorial Summaries)
 
-| #   | Source                              | One-line summary                 |                                                                                                         |
-| --- | ----------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| 00  | [[00_introduction_to_digital_images | Introduction to Digital Images]] | Photons to pixels: sensor physics, sampling, quantization, colour, and why pixel values are unreliable  |
-| 01a | [[01a_probability_for_cv            | Probability for CV]]             | Bernoulli→Binomial→Poisson→Normal→CLT: the math behind sensor noise                                     |
-| 01b | [[01b_linear_algebra_for_matching   | Linear Algebra for Matching]]    | Vectors, norms, cosine similarity, orthogonal projection — the math behind normalised matching          |
-| 02  | [[02_why_not_pixels                 | Why Not Pixels]]                 | Physics → affine model → normalisation → ceiling → features: why raw pixels fail and what replaces them |
+- **00** — [[00_introduction_to_digital_images|Introduction to Digital Images]] — Photons to pixels: sensor physics, sampling, quantization, colour, and why pixel values are unreliable
+- **01** — [[01b_linear_algebra_for_matching|Linear Algebra for Images]] — Vectors, norms, cosine similarity, orthogonal projection — the math behind normalised matching
+- **02** — [[01a_probability_for_cv|Probability for Sensors]] — Bernoulli→Binomial→Poisson→Normal→CLT: the math behind sensor noise
+- **03** — [[02_why_not_pixels|Why Not Pixels]] — Physics → affine model → normalisation → ceiling → features: why raw pixels fail and what replaces them
 
 ---
 
@@ -35,15 +33,20 @@ How a camera sensor converts photons into electrical signals. The physical layer
 - [[dark_current]] — Thermal electrons accumulating without light
 - [[read_noise]] — Electronic noise from amplifier/ADC
 
-### 2. Noise — Why repeated captures differ
+### 2. Linear Algebra for Images — Images as vectors
 
-The physics of randomness in imaging. Every concept here is a probability distribution applied to photons or electrons.
+Treating image patches as high-dimensional vectors unlocks the linear algebra toolkit for comparison.
 
-- [[shot_noise]] — Poisson-distributed photon arrival noise, σ = √λ
-- [[signal_to_noise_ratio|Signal-to-Noise Ratio]] — SNR ≈ √λ at high signal
-- [[noise_budget]] — Complete accounting of all noise sources
-- [[noise_regimes]] — Read-limited, shot-limited, saturated: which noise dominates
-- [[anscombe_transform]] — Variance stabilisation: Poisson → unit-variance Gaussian
+- [[vector_representation]] — A 3×3 patch is a point in 9D space
+- [[dot_product]] — Pixel-by-pixel agreement; magnitude-dependent
+- [[l2_norm]] — Vector length / magnitude
+- [[unit_vector]] — Direction without magnitude
+- [[cosine_similarity]] — Handles contrast ($a$) but fails on brightness offset ($b$)
+- [[orthogonality]] — Zero dot product; independent directions
+- [[orthogonal_projection]] — Decomposing a vector along a direction
+- [[mean_subtraction]] — Projection onto $[1,\ldots,1]$ direction removes brightness offset
+- [[linear_transform]] — Matrix that preserves vector addition and scalar multiplication
+- [[orthogonal_transform]] — Norm-preserving rotation: $\|Qx\| = \|x\|$ (Parseval's theorem)
 
 ### 3. Probability Foundations — The math behind noise
 
@@ -57,10 +60,22 @@ The distribution families that model sensor noise, building from simple to compl
 - [[normal_distribution]] — Bell curve; the endpoint of the CLT
 - [[central_limit_theorem]] — Sum of any independent RVs → Gaussian; why sensor noise is Gaussian
 
-### 4. Sampling & Quantization — Continuous world to discrete pixels
+### 4. Noise — Why repeated captures differ
+
+The physics of randomness in imaging. Every concept here is a probability distribution applied to photons or electrons.
+
+- [[shot_noise]] — Poisson-distributed photon arrival noise, σ = √λ
+- [[signal_to_noise_ratio|Signal-to-Noise Ratio]] — SNR ≈ √λ at high signal
+- [[noise_budget]] — Complete accounting of all noise sources
+- [[noise_regimes]] — Read-limited, shot-limited, saturated: which noise dominates
+- [[anscombe_transform]] — Variance stabilisation: Poisson → unit-variance Gaussian
+
+### 5. Sampling & Quantization — Continuous world to discrete pixels
 
 How continuous signals become the discrete grid of numbers we call an image.
 
+- [[spatial_frequency]] — How quickly intensity changes across space; the bridge from DSP time-domain frequency to images
+- [[frequency_domain]] — Fourier analysis: time-domain sinusoids → 1D FFT → 2D image spectra → frequency-domain filtering
 - [[sampling]] — Continuous signal → discrete values on a regular grid
 - [[nyquist_criterion]] — Minimum 2 samples per period to avoid aliasing
 - [[aliasing]] — Phantom frequencies from undersampling, irreversible
@@ -73,7 +88,7 @@ How continuous signals become the discrete grid of numbers we call an image.
 - [[bit_depth]] — Number of bits per pixel (8-bit = 256 levels)
 - [[false_contours]] — Visible banding from coarse quantization
 
-### 5. Image Formation & Colour — From scene to stored file
+### 6. Image Formation & Colour — From scene to stored file
 
 The full chain from scene light through the sensor pipeline to a stored image file.
 
@@ -89,21 +104,6 @@ The full chain from scene light through the sensor pipeline to a stored image fi
 - [[imaging_pipeline]] — End-to-end chain from scene light to stored pixels
 - [[nearest_neighbour_interpolation|Nearest-Neighbour Interpolation]] — Copy closest pixel, fast but blocky
 - [[bilinear_interpolation]] — 4-neighbour weighted average, smooth but blurry
-
-### 6. Linear Algebra for Matching — Images as vectors
-
-Treating image patches as high-dimensional vectors unlocks the linear algebra toolkit for comparison.
-
-- [[vector_representation]] — A 3×3 patch is a point in 9D space
-- [[dot_product]] — Pixel-by-pixel agreement; magnitude-dependent
-- [[l2_norm]] — Vector length / magnitude
-- [[unit_vector]] — Direction without magnitude
-- [[cosine_similarity]] — Handles contrast ($a$) but fails on brightness offset ($b$)
-- [[orthogonality]] — Zero dot product; independent directions
-- [[orthogonal_projection]] — Decomposing a vector along a direction
-- [[mean_subtraction]] — Projection onto $[1,\ldots,1]$ direction removes brightness offset
-- [[linear_transform]] — Matrix that preserves vector addition and scalar multiplication
-- [[orthogonal_transform]] — Norm-preserving rotation: $\|Qx\| = \|x\|$ (Parseval's theorem)
 
 ### 7. Matching & Normalisation — Comparing images correctly
 

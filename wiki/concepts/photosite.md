@@ -3,7 +3,7 @@ tags: [concept, sensor-physics]
 sources: [tutorials/00_introduction_to_digital_images/part1_sampling_and_sensors.md]
 last_updated: 2026-04-05
 ---
-can we 
+
 # Photosite
 
 The individual light-sensitive element on a camera sensor that collects photons during exposure and converts them to electrons via the photoelectric effect.
@@ -26,6 +26,14 @@ The photosite is where the physical world becomes a number. Its size determines 
 |--------|---------------|-------------------|------------|
 | Phone | ~1 µm² | ~1,000 e⁻ | ~3 e⁻ |
 | DSLR | ~25 µm² | ~50,000 e⁻ | ~5 e⁻ |
+
+## Figure — Sensor types
+
+A single photosite is just one cell in a larger arrangement. Gonzalez & Woods show the three common sensor geometries: (a) a **single sensor** (one photosite, moved mechanically to build an image), (b) a **line sensor** (1D strip, used in flatbed scanners), and (c) an **array sensor** (2D grid of photosites — modern CCD/CMOS cameras).
+
+![[gw_sensor_types.jpg]]
+
+*Source: Gonzalez & Woods, Digital Image Processing 3rd ed., Fig. 2.12.*
 
 ## Related Concepts
 

@@ -34,6 +34,7 @@ high_rate = 30  # well above → faithful
 
 ## Related Concepts
 
+- [[spatial_frequency]] — what "frequency" means for images (prerequisite if coming from a non-DSP background)
 - [[sampling]] — the process that the Nyquist criterion governs
 - [[aliasing]] — the consequence of violating the criterion
 - [[anti_aliasing_filter|Anti-Aliasing Filter]] — the standard remedy

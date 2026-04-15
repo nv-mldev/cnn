@@ -1,7 +1,7 @@
 ---
 tags: [concept, sensor-physics, fundamentals]
-sources: [tutorials/00_introduction_to_digital_images/part1_sampling_and_sensors.md]
-last_updated: 2026-04-05
+sources: [tutorials/00_introduction_to_digital_images/part1_sampling_and_sensors.md, "Gonzalez & Woods — Digital Image Processing 3rd ed., Ch. 2"]
+last_updated: 2026-04-14
 ---
 
 # Sampling
@@ -20,22 +20,84 @@ A camera sensor does not capture a continuous image — it measures brightness a
 - The minimum sampling rate to preserve a signal is defined by the [[nyquist_criterion]]
 - Sampling below the Nyquist rate causes [[aliasing]] — phantom frequencies that weren't in the original scene
 
-## Code Example
+## Visualizations
+
+### 1. Grid Density — Same scene, different sampling rates
+
+A concentric circle pattern sampled at 8×8, 20×20, and 60×60 grids. The coarse grid destroys the ring structure entirely; the fine grid reproduces it faithfully.
 
 ```python
-# 1D sampling analogy: a 3 Hz sine wave
 import numpy as np
-continuous_time = np.linspace(0, 1, 1000)
-signal = np.sin(2 * np.pi * 3 * continuous_time)
+import matplotlib.pyplot as plt
 
-# High rate (30 samples) — faithful reconstruction
-high_samples = np.linspace(0, 1, 30)
-high_values = np.sin(2 * np.pi * 3 * high_samples)
+# Continuous signal: concentric rings
+high_res = 500
+x = np.linspace(-1, 1, high_res)
+xx, yy = np.meshgrid(x, x)
+continuous_signal = np.sin(2 * np.pi * 6 * np.sqrt(xx**2 + yy**2))
 
-# Low rate (5 samples) — below Nyquist, aliased
-low_samples = np.linspace(0, 1, 5)
-low_values = np.sin(2 * np.pi * 3 * low_samples)
+# Sample at three grid densities
+for grid_size, label in [(8, "Coarse"), (20, "Medium"), (60, "Fine")]:
+    sample_points = np.linspace(-1, 1, grid_size)
+    sx, sy = np.meshgrid(sample_points, sample_points)
+    sampled = np.sin(2 * np.pi * 6 * np.sqrt(sx**2 + sy**2))
+    # Display with nearest-neighbour interpolation to show pixel blocks
+    plt.imshow(sampled, cmap="gray", interpolation="nearest")
 ```
+
+![[sampling_grid_density.png]]
+
+### 2. Nyquist & Aliasing — Undersampling creates phantom patterns
+
+A 12-cycle stripe pattern needs at least 24 samples (Nyquist criterion). Below that, a false low-frequency moiré pattern appears that doesn't exist in the scene.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+signal_frequency = 12  # cycles across the domain
+nyquist_rate = 2 * signal_frequency  # 24 samples needed
+
+# Sample at three rates: below, at, and above Nyquist
+for num_samples in [10, nyquist_rate, 60]:
+    sample_x = np.linspace(0, 1, num_samples)
+    sx, _ = np.meshgrid(sample_x, sample_x)
+    sampled = np.sin(2 * np.pi * signal_frequency * sx)
+    plt.imshow(sampled, cmap="gray", interpolation="nearest")
+```
+
+![[sampling_nyquist_aliasing.png]]
+
+### 3. Ground Sampling Distance — Pixel size determines what you can see
+
+An industrial inspection example: the same metal plate with bolts and a scratch defect. At coarse GSD (20 mm/pixel), the scratch is sub-pixel and invisible. At fine GSD (4 mm/pixel), it spans multiple pixels and is detectable.
+
+```python
+# GSD determines the smallest detectable feature:
+# - Coarse GSD (5×5 grid, 20 mm/pixel): bolts ≈ 1 pixel, scratch invisible
+# - Fine GSD (25×25 grid, 4 mm/pixel): bolts ≈ 4 pixels, scratch detectable
+#
+# Rule of thumb for inspection:
+#   minimum_pixels_on_defect = defect_size / GSD >= 2-3 pixels
+```
+
+![[sampling_gsd.png]]
+
+### 4. The canonical Gonzalez & Woods figure
+
+The classic textbook illustration: a continuous scene → a 1D scan line from A to B → samples taken along that line → each sample quantized to a discrete gray level. Together, sampling (horizontal axis) and quantization (vertical axis) convert the continuous image into a digital one.
+
+![[gw_sampling_quantization_scanline.jpg]]
+
+*Source: Gonzalez & Woods, Digital Image Processing 3rd ed., Fig. 2.16.*
+
+### 5. Continuous image → sensor array → pixelated result
+
+The same object projected onto a sensor grid: each cell integrates light over its area, producing one pixel value. The right panel shows the resulting pixelated image.
+
+![[gw_continuous_to_pixels.jpg]]
+
+*Source: Gonzalez & Woods, Fig. 2.17.*
 
 ## Related Concepts
 

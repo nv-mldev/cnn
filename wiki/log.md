@@ -1,9 +1,12 @@
 ---
 tags: [log]
-last_updated: 2026-04-10
+last_updated: 2026-04-15
 ---
 
 # Wiki Log
+
+## [2026-04-15] add | Concept: Frequency Domain
+Created `concepts/frequency_domain.md` — Fourier analysis from time domain → 1D FFT → 2D image spectra → frequency-domain filtering. Indexed under Section 5 (Sampling & Quantization) as the depth page behind the `spatial_frequency` bridge.
 
 ## [2026-04-05] init | Wiki created
 Initial wiki setup — directory structure, mkdocs config, index, and log.
@@ -46,3 +49,32 @@ Ingested from `tutorials/02_why_not_pixels/`.
 - 8 numbered sections following: sensor physics → noise → probability → sampling → image formation → linear algebra → matching → beyond pixels
 - Added all 56 concept pages, 4 source pages, 3 synthesis pages (was missing ~16 concepts, 2 sources, 1 synthesis)
 - Added table format for sources with tutorial number, link, and one-line summary
+
+## [2026-04-14] new concept | Spatial frequency (DSP → image-domain bridge)
+- Created `concepts/spatial_frequency.md` — a bridge page for CV learners from non-DSP backgrounds
+- Generated 3 matplotlib figures: `spatial_frequency_intuition.png`, `spatial_frequency_2d_basis.png`, `spatial_frequency_decomposition.png`
+- Page covers: time-domain → spatial-domain analogy, 2D sinusoidal basis, low-pass/high-pass decomposition, brief 2D FFT intro, why it matters for CNNs/JPEG/aliasing
+- Cross-linked from `nyquist_criterion.md`
+- Added to index under Section 5 (Sampling & Quantization)
+
+## [2026-04-14] figures | Embed Gonzalez & Woods Chapter 2 slides
+- Ingested 44-slide PPT deck from `sampling/` (Gonzalez & Woods, Digital Image Processing 3rd ed., Ch. 2)
+- Copied 11 priority slide images to `wiki/figures/` with `gw_` prefix
+- Embedded figures in 9 concept pages with attribution:
+  - sampling (Fig. 2.16 scanline, Fig. 2.17 sensor array projection)
+  - imaging_pipeline (Fig. 2.15 acquisition chain)
+  - photosite (Fig. 2.12 single/line/array sensor types)
+  - spatial_resolution (Fig. 2.20 watch at 4 DPI levels)
+  - quantization (Fig. 2.21 skull at 8 gray levels)
+  - signal_to_noise_ratio (Fig. 2.26 galaxy noise averaging)
+  - linear_transform (Table 2.2 affine transformation matrices)
+  - contrast (Fig. 2.41 Einstein low/med/high contrast)
+  - bilinear_interpolation (Fig. 2.36 rotation interpolation comparison)
+- All images credited to Gonzalez & Woods as external source
+
+## [2026-04-14] restructure | Reorder chapters and expand vision
+- Expanded project vision: pixels → transformers → VLMs (was: foundations → CS231n doorstep)
+- Reordered: Linear Algebra now comes before Probability (01→LA, 02→Prob, 03→Why Not Pixels)
+- Rationale: LA is more concrete/visual, easier entry after sensor physics; probability needs more maturity
+- Wiki concept sections reordered to match: sensor physics → LA → probability → noise → sampling → image formation → matching → beyond
+- Added Part II (convolutions to CNNs) and Part III (attention to VLMs) roadmap to CLAUDE.md
