@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "jupyter>=1.1.1",
+    "jupyter-book>=2.1.4",
     "manim>=0.20.1",
     "matplotlib>=3.10.8",
     "numpy>=2.4.2",

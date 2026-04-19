@@ -1,0 +1,35 @@
+version: 1
+project:
+  title: Pixels to Features
+  subtitle: A Journey from Pixels to Transformers
+  authors:
+    - name: Nithin Vadekkapat
+  toc:
+    - file: README.md
+    - title: "Part I — The Digital Image"
+      children:
+        - file: part1_the_digital_image/ch01_digitisation/ch01_digitisation.md
+        - file: part1_the_digital_image/ch02_sensor/ch02_sensor.md
+        - file: part1_the_digital_image/ch03_pixels/ch03_pixels.md
+        - file: part1_the_digital_image/ch04_contrast/ch04_contrast.md
+        - file: part1_the_digital_image/ch05_colour/ch05_colour.md
+    - title: "Part II — Why Pixels Fail"
+      children:
+        - file: part2_why_pixels_fail/ch06_pixel_problems/ch06_pixel_problems.md
+    - title: "Part III — The Math You Need"
+      children:
+        - file: part3_the_math/ch07_probability/ch07_probability.md
+        - file: part3_the_math/ch08_linear_algebra/ch08_linear_algebra.md
+    - title: "Part IV — Learning Features"
+      children:
+        - file: part4_learning_features/ch09_convolutions/ch09_convolutions.md
+        - file: part4_learning_features/ch10_backprop/ch10_backprop.md
+        - file: part4_learning_features/ch11_cnns/ch11_cnns.md
+        - file: part4_learning_features/ch12_training/ch12_training.md
+    - title: "Part V — Attention and Beyond"
+      children:
+        - file: part5_attention_and_beyond/ch13_attention/ch13_attention.md
+        - file: part5_attention_and_beyond/ch14_vit/ch14_vit.md
+        - file: part5_attention_and_beyond/ch15_vlm/ch15_vlm.md
+site:
+  template: book-theme
